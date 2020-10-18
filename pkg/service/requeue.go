@@ -13,6 +13,11 @@ import (
 
 var logger = logging.Logger
 
+/*
+RequeueOptions is options for Requeue action
+- Adaptors: Enable dynamic injection for testing
+- MessageLimit: Maximum number of sending message
+*/
 type RequeueOptions struct {
 	Adaptors     *adaptor.Adaptors
 	MessageLimit int
@@ -32,10 +37,12 @@ func extractSQSRegion(url string) (string, error) {
 	return domainParts[1], nil
 }
 
+// Requeue is to requeue without option. It calls RequeueWithOpt with empty RequeueOptions
 func Requeue(srcQueueURL, dstQueueURL string) error {
 	return RequeueWithOpt(srcQueueURL, dstQueueURL, &RequeueOptions{})
 }
 
+// RequeueWithOpt is main functino of ReSQS. It receives messages from srcQueueURL and sends them to dstQueueURL. It exits if source queue returns empty response.
 func RequeueWithOpt(srcQueueURL, dstQueueURL string, opt *RequeueOptions) error {
 	logger.WithFields(logrus.Fields{
 		"src": srcQueueURL,
