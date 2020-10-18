@@ -1,6 +1,6 @@
 # ReSQS
 
-CLI tool to requeue messages in AWS SQS queue.
+CLI tool to requeue messages in AWS SQS queue. A major use case is to requeue from DLQ (Dead Letter Queue) to original queue.
 
 ## Install
 
