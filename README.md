@@ -1,4 +1,4 @@
-# ReSQS
+# ReSQS [![Travis-CI](https://travis-ci.com/m-mizutani/resqs.svg)](https://travis-ci.org/m-mizutani/resqs) [![Report card](https://goreportcard.com/badge/github.com/m-mizutani/resqs)](https://goreportcard.com/report/github.com/m-mizutani/resqs)
 
 CLI tool to requeue messages in AWS SQS queue. A major use case is to requeue from DLQ (Dead Letter Queue) to original queue.
 
